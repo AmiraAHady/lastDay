@@ -1,0 +1,43 @@
+<div class="container">
+    <!-- <input type="text" [(ngModel)]="search" />
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="toggleLang()">
+      {{ lang }}
+    </button>
+  
+    <p>{{ search }}</p> -->
+    <div class="row">
+      <!-- <mat-paginator class="col-12"
+        [length]="length"
+        [pageSize]="pageSize"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator> -->
+      <div class="card" style="width: 16rem" *ngFor="let show of allTvs">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path"
+          class="card-img-top"
+          alt="{{ show.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ show.name}}</h5>
+          <p class="card-text" *ngIf="show.isVisable">
+            {{ show.overview | lowercase }}
+          </p>
+          <p>Release Date:{{ show.first_air_date
+            | date }}</p>
+          <!-- <app-star
+            [rating]="movie.rating"
+            (prodCast)="messageFromChild($event)"
+          ></app-star> -->
+          <!-- <button
+            class="btn btn-primary"
+            [disabled]="hamada"
+            (click)="toggleDiscription(movie.id)"
+          >
+            {{ movie.isVisable ? "Hide " : "Show " }}Details
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
